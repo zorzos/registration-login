@@ -1,0 +1,12 @@
+body {
+  background-color: ghostwhite;
+}
+
+.main-layout {
+  padding-top: 100px;
+  margin: 100px;
+}
+
+.label {
+  margin-left: 115px;
+}
