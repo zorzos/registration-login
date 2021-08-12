@@ -5,7 +5,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start:dev": "nodemon --exec node_modules/.bin/babel-node src/index.js",
+    "start:dev": "nodemon --exec node_modules/.bin/babel-node --experimental-specifier-resolution=node src/index.js",
     "start:prod": "node --experimental-specifier-resolution=node src/index.js"
   },
   "author": "Rafail Zorzos",
