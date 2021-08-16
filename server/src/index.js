@@ -30,7 +30,7 @@ app.use('/users', routes.user);
 
 const eraseDatabaseOnSync = true
 const reBuildDatabase = async () => {
-    let hashPassword = bcrypt.hashSync('123456', 15);
+    let hashPassword = bcrypt.hashSync('a1234567', 15);
     await models.User.create({
         email: 'rafail.zorzos@gmail.com',
         name: 'Rafail Zorzos',
@@ -43,7 +43,6 @@ sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
     if (eraseDatabaseOnSync) {
         reBuildDatabase();
     }
-    console.log("Rafail Zorzos");
     app.listen(process.env.PORT, () =>
         console.log('Registration/Login app started'),
         console.log(`Apollo Server on http://localhost:${process.env.PORT}/graphql`)

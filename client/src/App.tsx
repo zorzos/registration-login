@@ -64,7 +64,6 @@ function App() {
     )
     .then(response => {
       const fetchedUser = response.data.data.login
-      console.log('GraphQL response', response)
       setUser(fetchedUser)
       const details: NotificationDetails = {
         message: `Welcome ${fetchedUser.name}!`,

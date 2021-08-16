@@ -39,7 +39,6 @@ const resolvers = {
             let decoded = "";
             try {
                 decoded = jwt.verify(token, secret);
-                console.log('decoded', decoded);
             } catch (e) {
                 return -1;
             }
@@ -60,8 +59,6 @@ const resolvers = {
             let hashPassword = bcrypt.hashSync(password, 15);
             await models.User.create({ email, hash_password: hashPassword, name});
             const user = await models.User.findByLogin(email);
-            // delete user.dataValues.hash_password;
-            console.log('user', user);
             return user;
         }
     }

@@ -107,7 +107,6 @@ function Register(props: {
                         type="primary"
                         htmlType="submit"
                         onClick={() => register()}
-                        disabled
                     >
                             Register
                     </Button>
