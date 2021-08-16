@@ -29,7 +29,6 @@ function App() {
   })
 
   const registerUserTest = () => {
-    const operationName = 'register'
     setLoadingIndicator(true)
     api.register(
       {name, email, password},

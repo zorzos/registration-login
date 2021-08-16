@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { Button, Form, Input } from 'antd'
 
 function Register(props: {
@@ -25,12 +26,26 @@ function Register(props: {
         toggleRegisterScreen
     } = props
 
+    const [registrationDisabled, setRegistrationDisabled] = React.useState(true)
+
+    const customChange = (_: any, allFields: any) => {
+        let shouldEnableRegister = true
+        allFields.forEach((field: any) => {
+            if (field.errors.length > 0) {
+                shouldEnableRegister = false
+            }
+        })
+
+       setRegistrationDisabled(!shouldEnableRegister)
+    }
+
     return (
         <>
             <Form
                 name="basic"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
+                onFieldsChange={(_, allFields) => customChange(_, allFields)}
             >
                 <h3 className="label">
                     Register Form:
@@ -107,6 +122,7 @@ function Register(props: {
                         type="primary"
                         htmlType="submit"
                         onClick={() => register()}
+                        disabled={registrationDisabled}
                     >
                             Register
                     </Button>
@@ -119,7 +135,3 @@ function Register(props: {
 }
 
 export default Register
-function getFieldDecorator(arg0: string, arg1: { rules: { required: boolean; type: string; message: string }[] }) {
-    throw new Error('Function not implemented.')
-}
-
