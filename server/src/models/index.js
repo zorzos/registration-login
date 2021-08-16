@@ -12,8 +12,6 @@ const sequelize = new Sequelize(
 );
 
 const models = {
-    // User: sequelize.import('./user')
-    // User: require('./users.js')(sequelize, Sequelize.DataTypes)
     User: user(sequelize, Sequelize.DataTypes)
 };
 

@@ -3,10 +3,10 @@ body {
 }
 
 .main-layout {
-  padding-top: 100px;
-  margin: 100px;
+  padding: 200px;
 }
 
 .label {
-  margin-left: 115px;
+  /* text-align: center; */
+  padding-left: 135px;
 }

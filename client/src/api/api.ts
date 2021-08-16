@@ -1,12 +1,38 @@
+import userEvent from '@testing-library/user-event'
 import axios from 'axios'
+import { 
+    UserDetails,
+    UserLogout 
+} from '../type'
 
-export interface User {
-    name: string
-    email: string
+const baseURL = 'http://localhost:9000/graphql'
+
+export const register = (variables: UserDetails, query: String) => 
+axios.post(
+    baseURL,
+    {
+        operationName: 'register',
+        variables,
+        query
+    }
+)
+
+export const login = (variables: UserDetails, query: String) => 
+axios.post(
+    baseURL,
+    {
+        operationName: 'loginUser',
+        variables,
+        query
+    }
+)
+
+export const logout = (variables: UserLogout, query: String) => {
+    return axios.post(baseURL,
+        {
+            operationName: 'logoutUser',
+            variables,
+            query
+        }
+    )
 }
-
-export const register = axios.post('')
-
-export const login = axios.post('')
-
-export const logout = axios.post('')
