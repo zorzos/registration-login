@@ -28,7 +28,7 @@ function App() {
     token: ""
   })
 
-  const registerUserTest = () => {
+  const registerUser = () => {
     setLoadingIndicator(true)
     api.register(
       {name, email, password},
@@ -85,16 +85,26 @@ function App() {
     api.logout(
       {email, token: user.token},
       LOG_OUT_USER
-    ).then(() => {
-      const details: NotificationDetails = {
-        message: 'Success!',
-        description: 'You have successfully logged out!'
+    ).then(response => {
+      const logoutCode = response.data.data.logout
+      if (logoutCode === 0) {
+        const details: NotificationDetails = {
+          message: 'Success!',
+          description: 'You have successfully logged out!'
+        }
+        openNotification('success', details)
+        setLoadingIndicator(false)
+        setEmail("")
+        setPassword("")
+        setLoggedIn(false)
+      } else {
+        const details: NotificationDetails = {
+          message: 'Error!',
+          description: 'Something went wrong, please try again!'
+        }
+        openNotification('error', details)
+        setLoadingIndicator(false)
       }
-      openNotification('success', details)
-      setLoadingIndicator(false)
-      setEmail("")
-      setPassword("")
-      setLoggedIn(false)
     }).catch(() => {
       const details: NotificationDetails = {
         message: 'Error!',
@@ -141,7 +151,7 @@ function App() {
                     setPassword={setPassword}
                     confirmPassword={confirmPassword}
                     setConfirmPassword={setConfirmPassword}
-                    register={registerUserTest}
+                    register={registerUser}
                     toggleRegisterScreen={() => setRegisterScreen(!registerScreen)}
                   />
                 }
