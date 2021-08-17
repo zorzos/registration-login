@@ -50,3 +50,9 @@ And then to actually start the back end application:
 npm run start:prod
 ```
 
+---
+
+Note: when starting, the back end application inserts a "default" user with the following credentials:
+E-mail: rafail.zorzos@gmail.com
+Password: a1234567
+
