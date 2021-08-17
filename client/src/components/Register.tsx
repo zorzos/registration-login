@@ -14,14 +14,10 @@ function Register(props: {
     toggleRegisterScreen: () => void
 }) {
     const {
-        name,
-        setName,
-        email,
-        setEmail,
-        password,
-        setPassword,
-        confirmPassword,
-        setConfirmPassword,
+        name, setName,
+        email, setEmail,
+        password, setPassword,
+        confirmPassword, setConfirmPassword,
         register,
         toggleRegisterScreen
     } = props
@@ -52,8 +48,11 @@ function Register(props: {
                 </h3>
                 <Form.Item
                     label="Full Name"
-                    name="fullName"
-                    rules={[{ required: true, message: 'Please input your full name!' }]}
+                    name="Full Name"
+                    rules={[
+                        { required: true, message: 'Please input your full name!' },
+                        { min: 5 }
+                    ]}
                 >
                     <Input
                         value={name}
