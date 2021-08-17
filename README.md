@@ -52,7 +52,7 @@ npm run start:prod
 
 ---
 
-Note: when starting, the back end application inserts a "default" user with the following credentials:
-E-mail: rafail.zorzos@gmail.com
-Password: a1234567
+Note: when starting, the back end application inserts a "default" user with the following credentials:<br/>
+**E-mail:** rafail.zorzos@gmail.com
+**Password:** a1234567
 
