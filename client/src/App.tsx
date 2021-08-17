@@ -14,6 +14,7 @@ import {
   LOG_IN_USER,
   LOG_OUT_USER
 } from './graphql/queries'
+import { gql, useMutation } from '@apollo/client'
 
 function App() {
   const [loadingIndicator, setLoadingIndicator] = React.useState(false)
@@ -28,12 +29,13 @@ function App() {
     token: ""
   })
 
+  const [registerUserMutation] = useMutation(gql`${REGISTER_USER}`)
+
   const registerUser = () => {
     setLoadingIndicator(true)
-    api.register(
-      {name, email, password},
-      REGISTER_USER
-    ).then(() => {
+    registerUserMutation({
+      variables: {name, email, password}
+    }).then(() => {
       const details: NotificationDetails = {
         message: 'Successfully registered!',
         description: 'You have successfully registered, use your credentials to log in.'

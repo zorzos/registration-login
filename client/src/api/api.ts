@@ -6,16 +6,6 @@ import {
 
 const baseURL = 'http://localhost:9000/graphql'
 
-export const register = (variables: UserDetails, query: String) => 
-axios.post(
-    baseURL,
-    {
-        operationName: 'register',
-        variables,
-        query
-    }
-)
-
 export const login = (variables: UserDetails, query: String) => 
 axios.post(
     baseURL,
